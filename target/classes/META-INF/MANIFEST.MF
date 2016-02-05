@@ -1,5 +1,15 @@
 Manifest-Version: 1.0
-Built-By: Synclab
-Build-Jdk: 1.8.0_71
+Built-By: giuseppe
+Build-Jdk: 1.8.0_66
+Class-Path: args4j-2.0.16.jar poi-3.13.jar commons-codec-1.9.jar poi-o
+ oxml-3.13.jar poi-ooxml-schemas-3.13.jar xmlbeans-2.6.0.jar stax-api-
+ 1.0.1.jar logback-classic-0.9.29.jar logback-core-0.9.29.jar slf4j-ap
+ i-1.6.1.jar
+Implementation-Title: Synclab RIL Report
+Implementation-Version: 1.0.0-SNAPSHOT
+Implementation-Vendor-Id: it.synclab
+Implementation-Vendor: Synclab s.r.l.
+Main-Class: it.webrules.deploymanager.core.CLIMain
 Created-By: Maven Integration for Eclipse
+Implementation-Build: 1.0.0-SNAPSHOT
 

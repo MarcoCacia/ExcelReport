@@ -4,7 +4,7 @@
 
 	<groupId>it.synclab</groupId>
 	<artifactId>ril-report</artifactId>
-	<version>0.0.1-SNAPSHOT</version>
+	<version>1.0.0-SNAPSHOT</version>
 	<packaging>jar</packaging>
 
 	<properties>
@@ -23,27 +23,12 @@
 		</license>
 	</licenses>
 
-	<build>
-		<directory>target</directory>
-		<outputDirectory>target/classes</outputDirectory>
-		<finalName>${artifactId}-${version}</finalName>
-		<testOutputDirectory>target/test-classes</testOutputDirectory>
-		<sourceDirectory>src/main/java</sourceDirectory>
-		<scriptSourceDirectory>src/main/scripts</scriptSourceDirectory>
-		<testSourceDirectory>src/test/java</testSourceDirectory>
+	<scm>
+		<url>https://github.com/MarcoCacia/ExcelReport</url>
+		<connection>scm:git:git://github.com/MarcoCacia/ExcelReport.git</connection>
+		<developerConnection>scm:git:git@github.com:MarcoCacia/ExcelReport.git</developerConnection>
+	</scm>
 
-		<resources>
-			<resource>
-				<directory>src/main/resources</directory>
-			</resource>
-		</resources>
-
-		<testResources>
-			<testResource>
-				<directory>src/test/resources</directory>
-			</testResource>
-		</testResources>
-	</build>
 	<repositories>
 		<repository>
 			<id>mvnrepository</id>
@@ -89,6 +74,11 @@
 	</repositories>
 	<dependencies>
 
+		<dependency>
+			<groupId>args4j</groupId>
+			<artifactId>args4j</artifactId>
+			<version>2.0.16</version>
+		</dependency>
 
 		<dependency>
 			<groupId>org.apache.poi</groupId>
@@ -102,84 +92,189 @@
 			<version>3.13</version>
 		</dependency>
 
-
 		<dependency>
-			<groupId>junit</groupId>
-			<artifactId>junit</artifactId>
-			<version>4.8</version>
-			<scope>test</scope>
+			<groupId>ch.qos.logback</groupId>
+			<artifactId>logback-classic</artifactId>
+			<version>0.9.29</version>
+			<scope>compile</scope>
 		</dependency>
 
-		<dependency>
-			<groupId>org.hibernate</groupId>
-			<artifactId>hibernate-core</artifactId>
-			<version>5.0.7.Final</version>
-		</dependency>
-
-		<dependency>
-			<groupId>org.hibernate</groupId>
-			<artifactId>hibernate-entitymanager</artifactId>
-			<version>5.0.7.Final</version>
-		</dependency>
 	</dependencies>
+	<build>
+
+		<resources>
+			<resource>
+				<directory>src/main/resources</directory>
+				<filtering>true</filtering>
+			</resource>
+		</resources>
+
+		<plugins>
+
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-resources-plugin</artifactId>
+				<version>2.5</version>
+				<configuration>
+					<encoding>UTF-8</encoding>
+				</configuration>
+			</plugin>
+
+			<plugin>
+				<groupId>com.mycila.maven-license-plugin</groupId>
+				<artifactId>maven-license-plugin</artifactId>
+				<version>1.8.0</version>
+				<configuration>
+					<header>src/main/resources/header.txt</header>
+					<strictCheck>true</strictCheck>
+				</configuration>
+				<executions>
+					<execution>
+						<goals>
+							<goal>format</goal>
+						</goals>
+					</execution>
+				</executions>
+			</plugin>
+
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-release-plugin</artifactId>
+				<configuration>
+					<tagBase>https://github.com/MarcoCacia/ExcelReport/tags</tagBase>
+					<preparationGoals>clean package</preparationGoals>
+					<autoVersionSubmodules>false</autoVersionSubmodules>
+				</configuration>
+			</plugin>
+
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-jar-plugin</artifactId>
+				<version>2.3.1</version>
+				<configuration>
+					<archive>
+						<manifest>
+							<addClasspath>true</addClasspath>
+							<mainClass>it.webrules.deploymanager.core.CLIMain</mainClass>
+							<addDefaultImplementationEntries>true</addDefaultImplementationEntries>
+						</manifest>
+						<manifestEntries>
+							<Implementation-Build>${project.version}</Implementation-Build>
+						</manifestEntries>
+					</archive>
+				</configuration>
+			</plugin>
+
+			<plugin>
+				<artifactId>maven-assembly-plugin</artifactId>
+				<configuration>
+					<archive>
+						<manifest>
+							<mainClass>it.synclab.rilmanager.core.Main</mainClass>
+						</manifest>
+					</archive>
+					<descriptorRefs>
+						<descriptorRef>jar-with-dependencies</descriptorRef>
+					</descriptorRefs>
+				</configuration>
+			</plugin>
+
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-surefire-plugin</artifactId>
+				<version>2.7.2</version>
+				<configuration>
+					<forkMode>once</forkMode>
+					<argLine>-Xms256m -Xmx512m</argLine>
+					<testFailureIgnore>false</testFailureIgnore>
+					<skip>false</skip>
+				</configuration>
+			</plugin>
+
+		</plugins>
+
+	</build>
+
+
 
 	<reporting>
-		<outputDirectory>target/site</outputDirectory>
+
+		<plugins>
+
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-jxr-plugin</artifactId>
+				<version>2.2</version>
+			</plugin>
+
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-pmd-plugin</artifactId>
+				<version>2.5</version>
+				<configuration>
+					<linkXref>true</linkXref>
+					<sourceEncoding>UTF-8</sourceEncoding>
+					<minimumTokens>100</minimumTokens>
+					<targetJdk>1.6</targetJdk>
+				</configuration>
+			</plugin>
+
+			<plugin>
+				<groupId>org.codehaus.mojo</groupId>
+				<artifactId>cobertura-maven-plugin</artifactId>
+				<version>2.4</version>
+			</plugin>
+
+			<plugin>
+				<groupId>org.codehaus.mojo</groupId>
+				<artifactId>findbugs-maven-plugin</artifactId>
+				<version>2.3</version>
+			</plugin>
+
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-surefire-report-plugin</artifactId>
+				<version>2.4.2</version>
+			</plugin>
+
+			<plugin>
+				<groupId>org.codehaus.mojo</groupId>
+				<artifactId>taglist-maven-plugin</artifactId>
+				<version>2.4</version>
+				<configuration>
+					<tagListOptions>
+						<tagClasses>
+							<tagClass>
+								<displayName>Must be addressed</displayName>
+								<tags>
+									<tag>
+										<matchString>TODO</matchString>
+										<matchType>ignoreCase</matchType>
+									</tag>
+									<tag>
+										<matchString>FIXME</matchString>
+										<matchType>ignoreCase</matchType>
+									</tag>
+									<tag>
+										<matchString>DESIGN_FLAW</matchString>
+										<matchType>exact</matchType>
+									</tag>
+								</tags>
+							</tagClass>
+						</tagClasses>
+					</tagListOptions>
+				</configuration>
+			</plugin>
+
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-javadoc-plugin</artifactId>
+				<version>2.7</version>
+			</plugin>
+
+		</plugins>
+
 	</reporting>
-
-	<profiles>
-		<profile>
-			<id>release-profile</id>
-
-			<activation>
-				<property>
-					<name>performRelease</name>
-				</property>
-			</activation>
-
-			<build>
-				<plugins>
-					<plugin>
-						<inherited>true</inherited>
-						<groupId>org.apache.maven.plugins</groupId>
-						<artifactId>maven-source-plugin</artifactId>
-
-						<executions>
-							<execution>
-								<id>attach-sources</id>
-								<goals>
-									<goal>jar</goal>
-								</goals>
-							</execution>
-						</executions>
-					</plugin>
-					<plugin>
-						<inherited>true</inherited>
-						<groupId>org.apache.maven.plugins</groupId>
-						<artifactId>maven-javadoc-plugin</artifactId>
-
-						<executions>
-							<execution>
-								<id>attach-javadocs</id>
-								<goals>
-									<goal>jar</goal>
-								</goals>
-							</execution>
-						</executions>
-					</plugin>
-					<plugin>
-						<inherited>true</inherited>
-						<groupId>org.apache.maven.plugins</groupId>
-						<artifactId>maven-deploy-plugin</artifactId>
-
-						<configuration>
-							<updateReleaseInfo>true</updateReleaseInfo>
-						</configuration>
-					</plugin>
-				</plugins>
-			</build>
-		</profile>
-	</profiles>
 	<organization>
 		<name>Synclab s.r.l.</name>
 	</organization>
