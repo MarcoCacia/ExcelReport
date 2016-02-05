@@ -12,6 +12,7 @@ import java.util.HashSet;
 import java.util.Locale;
 import java.util.Set;
 
+import org.apache.poi.EncryptedDocumentException;
 import org.apache.poi.hssf.usermodel.HSSFWorkbook;
 import org.apache.poi.openxml4j.exceptions.InvalidFormatException;
 import org.apache.poi.ss.usermodel.Cell;
@@ -156,13 +157,13 @@ public class Main {
 
 	}
 
-	public static Ril getData(String dir) {
+	public static Ril getData(String dir) throws EncryptedDocumentException, InvalidFormatException {
 
 		Ril ril = new Ril();
 
 		try {
 			FileInputStream existingFile = new FileInputStream(new File(dir));
-			Workbook workbook = new HSSFWorkbook(existingFile);
+			Workbook workbook = WorkbookFactory.create(existingFile);
 			Sheet sheet1 = workbook.getSheetAt(0);
 			Sheet sheet2 = workbook.getSheetAt(1);
 
