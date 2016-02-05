@@ -1,4 +1,4 @@
-package it.synclab.rilexport.core;
+package it.synclab.rilmanager.model;
 
 import java.text.SimpleDateFormat;
 import java.util.Date;
