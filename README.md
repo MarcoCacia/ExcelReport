@@ -10,19 +10,31 @@
 	 * 
 	 * Su excel sono rispettivamente i campi:
 	 * 
-	 * � Prospetto Presenze � D6 (Data)
+	 * Prospetto Presenze - D6 (Data)
 	 * 
-	 * � Prospetto Presenze - E2 (nome)
+	 * Prospetto Presenze - E2 (nome)
 	 * 
-	 * � Prospetto Presenza I45 (ore lavorate)
+	 * Prospetto Presenza  - I45 (ore lavorate)
 	 * 
-	 * � Prospetto Presenza I41 (gg solari lavorate)
+	 * Prospetto Presenza - I41 (gg solari lavorate)
 	 * 
-	 * � MODULO C E19 (Ferie) è in un altro sheet
+	 * MODULO C - E19 (Ferie) è in un altro sheet
 	 * 
-	 * Il massimo (ma se non ci vuole molto tempo altrimenti lasciamo perdere)
-	 * sarebbe anche andare a recuperare il totale di giorni di malattia, o
-	 * conteggiando le M nella colonna I o andando a contare il numero di
-	 * istanze della parola malattia nello sheet MODULO C nella matrice
-	 * (C27:H42).
+	 * Prospetto presenze - conteggio M (malattie)
 	 */
+	 
+	 /*Bug*/
+	 
+	  - Gestire le eccezioni in modo tale che non blocchino il programma
+	  - Aggiungere colonna noma file al report
+	  - Gestire xlsx e xlsm
+	  - Normalizzare la colonna ore lavorate (es. 152:0 -> 152,0)
+	  
+	  /*TODO*/
+	  nel bat/configurazione inserire dei parametri $PATH_INIZIALE, $PATH_FINALE, $MESE, e il report sarà report_$MESE
+	  
+	  /*Next step*/
+	  - gestire le configurazioni
+	  - COLONNA ORE STRAORDINARIO: ORE TOT. LAVORATE  – GG SOLARI * 8h
+	  - gestire commesse
+	 	
