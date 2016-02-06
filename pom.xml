@@ -155,7 +155,7 @@
 					<archive>
 						<manifest>
 							<addClasspath>true</addClasspath>
-							<mainClass>it.webrules.deploymanager.core.CLIMain</mainClass>
+							<mainClass>it.synclab.rilmanager.core.CLIMain</mainClass>
 							<addDefaultImplementationEntries>true</addDefaultImplementationEntries>
 						</manifest>
 						<manifestEntries>
@@ -170,7 +170,7 @@
 				<configuration>
 					<archive>
 						<manifest>
-							<mainClass>it.synclab.rilmanager.core.Main</mainClass>
+							<mainClass>it.synclab.rilmanager.core.CLIMain</mainClass>
 						</manifest>
 					</archive>
 					<descriptorRefs>
