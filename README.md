@@ -25,13 +25,13 @@
 	 
 	 /*Bug*/
 	 
-	  - Gestire le eccezioni in modo tale che non blocchino il programma
-	  - Aggiungere colonna noma file al report
-	  - Gestire xlsx e xlsm
+	  - Gestire le eccezioni in modo tale che non blocchino il programma --> Done
+	  - Aggiungere colonna noma file al report --> Done
+	  - Gestire xlsx e xlsm --> testare xlsm
 	  - Normalizzare la colonna ore lavorate (es. 152:0 -> 152,0)
 	  
 	  /*TODO*/
-	  nel bat/configurazione inserire dei parametri $PATH_INIZIALE, $PATH_FINALE, $MESE, e il report sarà report_$MESE
+	  nel bat/configurazione inserire dei parametri $PATH_INIZIALE, $PATH_FINALE, $MESE, e il report sarà report_$MESE --> Done
 	  
 	  /*Next step*/
 	  - gestire le configurazioni
