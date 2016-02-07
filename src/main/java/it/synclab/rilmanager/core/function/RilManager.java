@@ -75,8 +75,8 @@ public class RilManager implements Function {
 		headRow.createCell(3).setCellValue("GG SOLARI");
 		headRow.createCell(4).setCellValue("FERIE/PERMESSI");
 		headRow.createCell(5).setCellValue("MALATTIA");
-		headRow.createCell(5).setCellValue("FILE ELABORATO");
-		headRow.createCell(5).setCellValue("ERRORE");
+		headRow.createCell(6).setCellValue("FILE ELABORATO");
+		headRow.createCell(7).setCellValue("ERRORE");
 		
 		int i = 0;
 		for (Ril ril : rils) {
