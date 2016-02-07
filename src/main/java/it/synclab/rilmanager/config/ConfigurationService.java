@@ -25,7 +25,7 @@ public class ConfigurationService {
 	@Option(name = "-rfn", aliases = "--reportfilename", usage = "File name of report.")
 	private String reportFileName = null;
 	
-	public void configWithArgument(String[] args) throws ConfigurationException {
+	public boolean configWithArgument(String[] args) throws ConfigurationException {
 		CmdLineParser parser = new CmdLineParser(this);
 		
 		try {
@@ -35,12 +35,13 @@ public class ConfigurationService {
 			if (help != null && help) {
 				UsageHelper usageHelper = new UsageHelper(parser);
 				usageHelper.printUsage();
-				return;
+				return false;
 			}
 			
-			if (configFile != null)
+			if (configFile != null) {
 				configWith(configFile);
-				
+				return true;
+			}
 			if (startDir == null)
 				throw new ConfigurationException("Option \"-sd (--startdir)\" is required");
 				
@@ -52,7 +53,9 @@ public class ConfigurationService {
 				
 			if (reportFileName == null)
 				reportFileName = "report_" + month + ".xls";
-
+				
+			return true;
+			
 		} catch (Exception e) {
 			throw new ConfigurationException("Configuration is not valid: " + e.getMessage(), e);
 			

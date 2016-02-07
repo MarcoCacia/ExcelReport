@@ -17,8 +17,9 @@ public class CLIMain {
 		try {
 			
 			ConfigurationService configurationService = new ConfigurationService();
-			configurationService.configWithArgument(args);
-			
+			if (!configurationService.configWithArgument(args))
+				System.exit(0);
+				
 			Object ret = new Main().run(configurationService);
 			
 			if (ret != null)
