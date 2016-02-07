@@ -17,11 +17,12 @@ public class Ril {
 	
 	private Date date;
 	private String name;
-	private String workingHour;
+	private double workingHour;
 	private double days;
 	private double holiday;
 	private int sickness;
 	private String filename;
+	private String errorMessage;
 	
 	public Ril() {
 	}
@@ -32,24 +33,28 @@ public class Ril {
 		Workbook workbook = WorkbookFactory.create(fis);
 		Sheet sheet0 = workbook.getSheetAt(0);
 		Sheet sheet1 = workbook.getSheetAt(1);
-		
-		this.date = sheet0.getRow(5).getCell(3).getDateCellValue();
-		this.name = sheet0.getRow(1).getCell(4).getStringCellValue();
-		
-		this.workingHour = sheet0.getRow(44).getCell(8).getStringCellValue();
-		this.days = sheet0.getRow(40).getCell(8).getNumericCellValue();
-		this.holiday = sheet1.getRow(18).getCell(4).getNumericCellValue();
-		
-		int counter = 0;
-		for (int i = 8; i <= 39; i++) {
-			if ("m".equalsIgnoreCase(sheet0.getRow(i).getCell(8).getStringCellValue()))
-				counter++;
+		try {
+			this.date = sheet0.getRow(5).getCell(3).getDateCellValue();
+			this.name = sheet0.getRow(1).getCell(4).getStringCellValue();
+			
+			this.workingHour = Double.valueOf(sheet0.getRow(44).getCell(8).getStringCellValue().replace(':', '.'));
+			this.days = sheet0.getRow(40).getCell(8).getNumericCellValue();
+			this.holiday = sheet1.getRow(18).getCell(4).getNumericCellValue();
+			
+			int counter = 0;
+			for (int i = 8; i <= 39; i++) {
+				if ("m".equalsIgnoreCase(sheet0.getRow(i).getCell(8).getStringCellValue()))
+					counter++;
+			}
+			
+		} catch (Exception e) {
+			this.errorMessage = e.getMessage();
 		}
 		this.filename = file;
 		
 	}
 	
-	public Ril(Date date, String name, String workingHour, double days, double holiday, int sickness) {
+	public Ril(Date date, String name, double workingHour, double days, double holiday, int sickness) {
 		this.date = date;
 		this.name = name;
 		this.workingHour = workingHour;
@@ -82,11 +87,11 @@ public class Ril {
 		this.name = name;
 	}
 	
-	public String getWorkingHour() {
+	public double getWorkingHour() {
 		return workingHour;
 	}
 	
-	public void setWorkingHour(String workingHour) {
+	public void setWorkingHour(double workingHour) {
 		this.workingHour = workingHour;
 	}
 	
@@ -122,6 +127,14 @@ public class Ril {
 		this.filename = filename;
 	}
 	
+	public String getErrorMessage() {
+		return errorMessage;
+	}
+
+	public void setErrorMessage(String errorMessage) {
+		this.errorMessage = errorMessage;
+	}
+
 	@Override
 	public int hashCode() {
 		final int prime = 31;
@@ -150,7 +163,7 @@ public class Ril {
 	@Override
 	public String toString() {
 		return "Ril [date=" + date + ", name=" + name + ", workingHour=" + workingHour + ", days=" + days + ", holiday=" + holiday + ", sickness=" + sickness + ", filename="
-				+ filename + "]";
+				+ filename + ", errorMessage=" + errorMessage + "]";
 	}
 	
 }

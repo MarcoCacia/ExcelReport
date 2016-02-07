@@ -44,7 +44,7 @@ public class RilManager implements Function {
 		Set<Ril> rils = new HashSet<Ril>();
 		logger.info("Start processing...");
 		for (String filename : filenames) {
-			String absoluteRilPath = configurationService.getEndDir() + File.separator + filename;
+			String absoluteRilPath = configurationService.getStartDir() + File.separator + filename;
 			logger.info(absoluteRilPath);
 			Ril ril = new Ril();
 			try {
@@ -76,10 +76,12 @@ public class RilManager implements Function {
 		headRow.createCell(4).setCellValue("FERIE/PERMESSI");
 		headRow.createCell(5).setCellValue("MALATTIA");
 		headRow.createCell(5).setCellValue("FILE ELABORATO");
+		headRow.createCell(5).setCellValue("ERRORE");
 		
 		int i = 0;
 		for (Ril ril : rils) {
 			i++;
+			logger.info("RIL: {}", ril.getFilename());
 			Row row = sheet.createRow((short) i);
 			row.createCell(0).setCellType(Cell.CELL_TYPE_STRING);
 			row.getCell(0).setCellValue(ril.getDateItFormat());
@@ -89,6 +91,7 @@ public class RilManager implements Function {
 			row.createCell(4).setCellValue(ril.getHoliday());
 			row.createCell(5).setCellValue(ril.getSickness());
 			row.createCell(6).setCellValue(ril.getFilename());
+			row.createCell(7).setCellValue(ril.getErrorMessage());
 		}
 		
 		FileOutputStream fos = null;
