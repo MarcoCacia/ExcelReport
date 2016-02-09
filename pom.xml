@@ -14,7 +14,7 @@
 	</properties>
 
 	<name>Synclab RIL Report</name>
-	<url>http://my.project.url</url>
+	<url>https://github.com/MarcoCacia/ExcelReport</url>
 	<description>TODO</description>
 
 	<licenses>
@@ -37,9 +37,9 @@
 	</distributionManagement>
 
 	<scm>
-		<url>https://github.com/MarcoCacia/ExcelReport.git</url>
-		<connection>https://github.com/MarcoCacia/ExcelReport.git</connection>
-		<developerConnection>https://github.com/MarcoCacia/ExcelReport.git</developerConnection>
+		<connection>scm:git:git@github.com:MarcoCacia/ExcelReport.git</connection>
+		<url>scm:git:git@github.com:MarcoCacia/ExcelReport.git</url>
+		<developerConnection>scm:git:git@github.com:MarcoCacia/ExcelReport.git</developerConnection>
 	</scm>
 
 	<repositories>
@@ -160,9 +160,9 @@
 						<goals>
 							<goal>perform</goal>
 						</goals>
-<!-- 						<configuration> -->
-<!-- 							<pomFileName>pom.xml</pomFileName> -->
-<!-- 						</configuration> -->
+						<!-- <configuration> -->
+						<!-- <pomFileName>pom.xml</pomFileName> -->
+						<!-- </configuration> -->
 					</execution>
 				</executions>
 			</plugin>
