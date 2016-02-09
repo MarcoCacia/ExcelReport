@@ -38,8 +38,8 @@
 
 	<scm>
 		<url>https://github.com/MarcoCacia/ExcelReport.git</url>
-		<connection>scm:git:git@github.com:MarcoCacia/ExcelReport.git</connection>
-		<developerConnection>scm:git:git@github.com:MarcoCacia/ExcelReport.git</developerConnection>
+		<connection>https://github.com/MarcoCacia/ExcelReport.git</connection>
+		<developerConnection>https://github.com/MarcoCacia/ExcelReport.git</developerConnection>
 	</scm>
 
 	<repositories>
