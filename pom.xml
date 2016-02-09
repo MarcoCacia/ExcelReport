@@ -28,11 +28,11 @@
 	<distributionManagement>
 		<repository>
 			<id>releases</id>
-			<url>https://github.com/MarcoCacia/ExcelReport</url>
+			<url>File:target/release</url>
 		</repository>
 		<snapshotRepository>
 			<id>snapshots</id>
-			<url>https://github.com/MarcoCacia/ExcelReport</url>
+			<url>File:target/snapdhots</url>
 		</snapshotRepository>
 	</distributionManagement>
 
