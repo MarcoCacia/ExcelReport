@@ -36,7 +36,7 @@ public class RilManager implements Function {
 		logger.info("Report file name: " + configurationService.getReportFileName());
 		
 		logger.info("Check Report directory...");
-		createDir(configurationService.getEndDir());
+		File newDir = createDir(configurationService.getEndDir());
 		logger.info("Done!");
 		
 		logger.info("Check Rils to process...");
@@ -59,7 +59,7 @@ public class RilManager implements Function {
 			}
 		}
 		
-		return createReport(rils, configurationService.getEndDir() + File.separator + configurationService.getReportFileName());
+		return createReport(rils, newDir + File.separator + configurationService.getReportFileName());
 	}
 	
 	@SuppressWarnings("resource")
