@@ -14,13 +14,13 @@ public class ConfigurationService {
 	private Boolean help;
 	
 	@Option(name = "-sd", aliases = "--startdir", usage = "Dirctory Rils to process.")
-	private String startDir = "C:/StageCacia/RILs"; //private String startDir = null;
+	private String startDir = null;
 	
 	@Option(name = "-ed", aliases = "--enddir", usage = "Dirctory to put report.")
-	private String endDir = "c:/users/synclab/Documents/RIL"; //private String endDir = null;
+	private String endDir = null;
 	
 	@Option(name = "-m", aliases = "--month", usage = "Month to processs.")
-	private String month = "gennaio"; //private String month = null;
+	private String month = null;
 	
 	@Option(name = "-rfn", aliases = "--reportfilename", usage = "File name of report.")
 	private String reportFileName = null;
