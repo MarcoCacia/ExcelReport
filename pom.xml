@@ -9,8 +9,8 @@
 
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-		<maven.compiler.source>1.8</maven.compiler.source>
-		<maven.compiler.target>1.8</maven.compiler.target>
+		<maven.compiler.source>1.6</maven.compiler.source>
+		<maven.compiler.target>1.6</maven.compiler.target>
 	</properties>
 
 	<name>Synclab RIL Report</name>
@@ -25,9 +25,20 @@
 		</license>
 	</licenses>
 
+	<distributionManagement>
+		<repository>
+			<id>releases</id>
+			<url>https://github.com/MarcoCacia/ExcelReport/releases</url>
+		</repository>
+		<snapshotRepository>
+			<id>snapshots</id>
+			<url>https://github.com/MarcoCacia/ExcelReport</url>
+		</snapshotRepository>
+	</distributionManagement>
+
 	<scm>
-		<url>https://github.com/MarcoCacia/ExcelReport</url>
-		<connection>scm:git:git://github.com/MarcoCacia/ExcelReport.git</connection>
+		<url>scm:git:git@github.com:MarcoCacia/ExcelReport.git</url>
+		<connection>scm:git:git@github.com:MarcoCacia/ExcelReport.git</connection>
 		<developerConnection>scm:git:git@github.com:MarcoCacia/ExcelReport.git</developerConnection>
 	</scm>
 
@@ -142,13 +153,19 @@
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-release-plugin</artifactId>
-				<configuration>
-					<tagBase>https://github.com/MarcoCacia/ExcelReport/tags</tagBase>
-					<preparationGoals>clean package</preparationGoals>
-					<autoVersionSubmodules>false</autoVersionSubmodules>
-				</configuration>
+				<version>2.5.3</version>
+				<executions>
+					<execution>
+						<id>default</id>
+						<goals>
+							<goal>perform</goal>
+						</goals>
+<!-- 						<configuration> -->
+<!-- 							<pomFileName>pom.xml</pomFileName> -->
+<!-- 						</configuration> -->
+					</execution>
+				</executions>
 			</plugin>
-
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-jar-plugin</artifactId>
