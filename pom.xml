@@ -3,7 +3,7 @@
 
 	<groupId>it.synclab</groupId>
 	<artifactId>ril-report</artifactId>
-	<version>1.0.3</version>
+	<version>1.0.4-SNAPSHOT</version>
 	<packaging>jar</packaging>
 
 	<properties>
@@ -39,7 +39,7 @@
 		<connection>scm:git:git@github.com:MarcoCacia/ExcelReport.git</connection>
 		<url>scm:git:git@github.com:MarcoCacia/ExcelReport.git</url>
 		<developerConnection>scm:git:git@github.com:MarcoCacia/ExcelReport.git</developerConnection>
-		<tag>ril-report-1.0.3</tag>
+		<tag>HEAD</tag>
 	</scm>
 
 	<repositories>
