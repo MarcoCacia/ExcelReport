@@ -15,4 +15,4 @@
 # limitations under the License.
 #
 
-mvn clean package
+mvn clean release:clean release:prepare release:perform

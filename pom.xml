@@ -1,4 +1,5 @@
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 
 	<groupId>it.synclab</groupId>
@@ -24,23 +25,23 @@
 		</license>
 	</licenses>
 
-<!-- 	<distributionManagement> -->
-<!-- 		<repository> -->
-<!-- 			<id>releases</id> -->
-<!-- 			<url>https://github.com/MarcoCacia/ExcelReport/releases</url> -->
-<!-- 		</repository> -->
-<!-- 		<snapshotRepository> -->
-<!-- 			<id>snapshots</id> -->
-<!-- 			<url>https://github.com/MarcoCacia/ExcelReport</url> -->
-<!-- 		</snapshotRepository> -->
-<!-- 	</distributionManagement> -->
+	<distributionManagement>
+		<repository>
+			<id>releases</id>
+			<url>https://github.com/MarcoCacia/ExcelReport</url>
+		</repository>
+		<snapshotRepository>
+			<id>snapshots</id>
+			<url>https://github.com/MarcoCacia/ExcelReport</url>
+		</snapshotRepository>
+	</distributionManagement>
 
 	<scm>
 		<connection>scm:git:git@github.com:MarcoCacia/ExcelReport.git</connection>
 		<url>scm:git:git@github.com:MarcoCacia/ExcelReport.git</url>
 		<developerConnection>scm:git:git@github.com:MarcoCacia/ExcelReport.git</developerConnection>
-	  <tag>HEAD</tag>
-  </scm>
+		<tag>HEAD</tag>
+	</scm>
 
 	<repositories>
 		<repository>
