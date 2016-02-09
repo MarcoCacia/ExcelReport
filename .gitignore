@@ -4,3 +4,5 @@
 /.classpath
 /logs/
 /.project
+/pom.xml.releaseBackup
+/release.properties

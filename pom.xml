@@ -24,16 +24,16 @@
 		</license>
 	</licenses>
 
-	<distributionManagement>
-		<repository>
-			<id>releases</id>
-			<url>https://github.com/MarcoCacia/ExcelReport/releases</url>
-		</repository>
-		<snapshotRepository>
-			<id>snapshots</id>
-			<url>https://github.com/MarcoCacia/ExcelReport</url>
-		</snapshotRepository>
-	</distributionManagement>
+<!-- 	<distributionManagement> -->
+<!-- 		<repository> -->
+<!-- 			<id>releases</id> -->
+<!-- 			<url>https://github.com/MarcoCacia/ExcelReport/releases</url> -->
+<!-- 		</repository> -->
+<!-- 		<snapshotRepository> -->
+<!-- 			<id>snapshots</id> -->
+<!-- 			<url>https://github.com/MarcoCacia/ExcelReport</url> -->
+<!-- 		</snapshotRepository> -->
+<!-- 	</distributionManagement> -->
 
 	<scm>
 		<connection>scm:git:git@github.com:MarcoCacia/ExcelReport.git</connection>
