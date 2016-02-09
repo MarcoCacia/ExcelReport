@@ -61,7 +61,7 @@ public class RilManager implements Function {
 			}
 		}
 		
-		return createReport(rils, createDirMonth + File.separator + configurationService.getReportFileName());
+		return createReport(rils, createDirPerMonth + File.separator + configurationService.getReportFileName());
 	}
 	
 	@SuppressWarnings("resource")
