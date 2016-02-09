@@ -15,4 +15,4 @@
 # limitations under the License.
 #
 
-mvn clean release:clean release:prepare release:perform
+mvn clean release:clean release:prepare release:perform -Darguments="-Dmaven.deploy.skip=true"
