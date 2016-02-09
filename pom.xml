@@ -37,7 +37,7 @@
 	</distributionManagement>
 
 	<scm>
-		<url>scm:git:git@github.com:MarcoCacia/ExcelReport.git</url>
+		<url>https://github.com/MarcoCacia/ExcelReport.git</url>
 		<connection>scm:git:git@github.com:MarcoCacia/ExcelReport.git</connection>
 		<developerConnection>scm:git:git@github.com:MarcoCacia/ExcelReport.git</developerConnection>
 	</scm>
