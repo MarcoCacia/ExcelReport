@@ -51,7 +51,7 @@ public class ConfigurationService {
 			if (month == null)
 				throw new ConfigurationException("Option \"-m (--month)\" is required");
 				
-			endDir = endDir + File.separator + month;
+			startDir = startDir + File.separator + month;
 			
 			if (reportFileName == null)
 				reportFileName = "report_" + month + ".xls";
