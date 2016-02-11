@@ -46,6 +46,7 @@ public class Ril {
 				if ("m".equalsIgnoreCase(sheet0.getRow(i).getCell(8).getStringCellValue()))
 					counter++;
 			}
+			this.sickness = counter;
 			
 		} catch (Exception e) {
 			this.errorMessage = e.getMessage();
