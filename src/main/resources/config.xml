@@ -1,11 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-
-<args>
-	
+<configurationService month="gennaio">
 	<startDir>C:/StageCacia/RILs</startDir>
-	<endDir>%USERPROFILE%/documents</endDir>
-	<month>gennaio</month>
-
-
-</args>
+	<endDir>c:/users/Synclab/documents</endDir>
+</configurationService>
  
