@@ -69,29 +69,31 @@ public class RilManager implements Function {
 		Workbook workbook = new HSSFWorkbook();
 		Sheet sheet = workbook.createSheet("Report");
 		Row headRow = sheet.createRow(0);
-		headRow.createCell(0).setCellValue("DATA");
-		headRow.createCell(1).setCellValue("NOME PERSONA");
-		headRow.createCell(2).setCellValue("ORE LAVORATE");
+		headRow.createCell(0).setCellValue("NOME");
+		headRow.createCell(1).setCellValue("DATA");
+		headRow.createCell(2).setCellValue("ORE TOTALI");
 		headRow.createCell(3).setCellValue("GG SOLARI");
-		headRow.createCell(4).setCellValue("FERIE/PERMESSI");
-		headRow.createCell(5).setCellValue("MALATTIA");
-		headRow.createCell(6).setCellValue("FILE ELABORATO");
-		headRow.createCell(7).setCellValue("ERRORE");
+		headRow.createCell(4).setCellValue("ORE STRAORDINARI TOT");
+		headRow.createCell(5).setCellValue("FERIE/PERMESSI");
+		headRow.createCell(6).setCellValue("MALATTIA");
+		headRow.createCell(7).setCellValue("FILE ELABORATO");
+		headRow.createCell(8).setCellValue("ERRORE");
 		
 		int i = 0;
 		for (Ril ril : rils) {
 			i++;
 			logger.info("RIL: {}", ril.getFilename());
 			Row row = sheet.createRow((short) i);
-			row.createCell(0).setCellType(Cell.CELL_TYPE_STRING);
-			row.getCell(0).setCellValue(ril.getDateItFormat());
-			row.createCell(1).setCellValue(ril.getName());
+			row.createCell(0).setCellValue(ril.getName());
+			row.createCell(1).setCellType(Cell.CELL_TYPE_STRING);
+			row.getCell(1).setCellValue(ril.getDateItFormat());
 			row.createCell(2).setCellValue(ril.getWorkingHour());
 			row.createCell(3).setCellValue(ril.getDays());
-			row.createCell(4).setCellValue(ril.getHoliday());
-			row.createCell(5).setCellValue(ril.getSickness());
-			row.createCell(6).setCellValue(ril.getFilename());
-			row.createCell(7).setCellValue(ril.getErrorMessage());
+			row.createCell(4).setCellValue(ril.getWorkingHour()-(ril.getDays()*8)); 
+			row.createCell(5).setCellValue(ril.getHoliday());
+			row.createCell(6).setCellValue(ril.getSickness());
+			row.createCell(7).setCellValue(ril.getFilename());
+			row.createCell(8).setCellValue(ril.getErrorMessage());
 		}
 		
 		FileOutputStream fos = null;
